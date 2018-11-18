@@ -7,7 +7,7 @@ public class Student {
 	private String firstName;
 	private String lastName;
 	private int year;
-	private String courses;
+	private String courses="";
 	private String studentId;
 	private int tutionBalance=0;
 	private static int costOfCourse=600;
@@ -38,10 +38,11 @@ public class Student {
 			Scanner in = new Scanner(System.in);
 			String course = in.nextLine();
 			if(!course.equals("Q")) {
-				courses=courses+"\n"+course;
+				courses=courses+course;
 				tutionBalance=tutionBalance+costOfCourse;
 			}
 			else break;
+			courses+="\n";
 		}
 		System.out.println(courses);
 	}
@@ -59,4 +60,8 @@ public class Student {
 		viewbalance();
 	}
 	//Show Status
+	public String showstat() {
+		return firstName+" "+lastName+"\n"+"TutionBalance : "+tutionBalance+"\n"+
+	           courses+"\n";
+	}
 }
